@@ -1,6 +1,7 @@
 # F3NProxyPerm
 
-If you press F3 + N or use the gamemode switcher (F3 + F4) on a server with permissions for /gamemode, but without op, your Minecraft client will not allow you to actually change your gamemode. This is because the minecraft client requires to know that you are a server operator. This plugin was built solely to mitigate that issue.
+Allows the use of F3 + N and F3 + F4 on servers that players are not opped on but still have permissions to change gamemodes.
+Proxy-side version of F3NPerm.
 
 ## Requirements
 - [PacketEvents](https://github.com/retrooper/packetevents) (required)

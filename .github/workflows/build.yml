@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v5
+      - run: chmod +x gradlew
+      - name: "Build with Gradle"
+        run: ./gradlew build
+      - name: "Upload artifact"
+        uses: actions/upload-artifact@v6
+        with:
+          name: BreadBoard
+          path: build/libs/F3NProxyPerm-*.jar
+          overwrite: true
+
+  delete-old-workflows:
+    runs-on: self-hosted
+    steps:
+      - uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 30
+          keep_minimum_runs: 5
