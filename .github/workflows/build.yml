@@ -20,7 +20,7 @@ jobs:
       - name: "Upload artifact"
         uses: actions/upload-artifact@v6
         with:
-          name: BreadBoard
+          name: F3NProxyPerm
           path: build/libs/F3NProxyPerm-*.jar
           overwrite: true
 
